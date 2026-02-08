@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const int MAXN = 8;
+const int MAXN = 9;
 
 queue <pair <int, int>> q;
 bool was[MAXN][MAXN];
