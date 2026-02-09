@@ -3,48 +3,41 @@
 
 using namespace std;
 
-const int MAXN = 200001;
+const int MAXN = 101;
 
 vector <int> g[MAXN];
 bool was[MAXN];
 
-bool isCycle = true;
-
-int n, m;
-
 void dfs(int v) {
     was[v] = true;
-
-    if (g[v].size() != 2) isCycle = false;
-
+    
     for (int to : g[v]) {
         if (!was[to]) {
             dfs(to);
         }
-
     }
 }
 
 int main() {
-    cin >> n >> m;
+    int n, k, m; cin >> n >> k >> m;
 
     for (int i = 0, x, y; i < m; i++) {
         cin >> x >> y;
         g[x].push_back(y);
-        g[y].push_back(x);
     }
 
-    int cycles = 0;
+    dfs(k);
+
     for (int i = 1; i <= n; i++) {
+        if (i == k) continue;
+        
         if (!was[i]) {
-            isCycle = true;
-            dfs(i);
-            if (isCycle) cycles++;
+            cout << "No\n";
+            return 0; 
         }
     }
 
-    cout << cycles << "\n";
-
-
+    cout << "Yes\n";
     return 0;
+
 }
