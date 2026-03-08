@@ -12,7 +12,6 @@ int block_num[MAXN];
 int block_start[MAXN];
 long long blocks[MAXN];
 long long add[MAXN];
-
 int main() {
     //IOS;
     int n, q; cin >> n >> q;
