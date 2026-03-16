@@ -3,6 +3,8 @@
 
 using namespace std;
 
+#define IOS ios::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+
 struct Vertex {
     int full;
     int left;
@@ -57,6 +59,7 @@ Vertex get_v(int v, int tl, int tr, int l, int r) {
 }
 
 int main() {
+    IOS;
     cin >> s;
     int n = s.size();
     s = "#" + s;
