@@ -7,6 +7,8 @@ const int MAXN = 501;
 
 long long pr[MAXN][MAXN];
 int main() {
+    IOS;
+
     int n, m, k; cin >> n >> m >> k;
     for (int i = 1; i <= n; i++) {
         for (int j = 1, cell; j <= m; j++) {
@@ -29,10 +31,5 @@ int main() {
         int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
         cout << pr[x2][y2] - pr[x1-1][y2] - pr[x2][y1-1] + pr[x1-1][y1-1] << "\n";
     }
-
-
-
-
-
     return 0;
 }
