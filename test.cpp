@@ -1,33 +1,41 @@
-#include <iostream> 
+#include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 
 using namespace std;
 
-vector <int> arr;
+pair<int, int> MatrixArgMax(const vector <vector <int>>& matrix) {
+    int n = matrix.size();
+    int m = matrix[0].size();
 
-void bubleSort(vector<int>& arr, int n) {
+    int mmax = matrix[0][0];
+    pair indx = {0, 0};
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
+        for (int j = 0; j < m; j++) {
+            if (matrix[i][j] > mmax) {
+                mmax = matrix[i][j];
+                indx.first = i;
+                indx.second = j;
             }
         }
     }
+
+    return indx;
 }
 
+
+
 int main() {
-    int n; cin >> n;
-
+    int n, m; cin >> n >> m;
+    vector <vector <int>> matrix;
+    matrix.resize(n, vector<int>(m, 0));
     for (int i = 0; i < n; i++) {
-        int number; cin >> number;
-        arr.push_back(number);        
+        for (int j = 0; j < m; j++) {
+            cin >> matrix[i][j];
+        }
     }
-
-    bubleSort(arr, n);
-
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-
+   
+    pair elem = MatrixArgMax(matrix);
+    cout << elem.first << " " << elem.second << "\n";
     return 0;
 }

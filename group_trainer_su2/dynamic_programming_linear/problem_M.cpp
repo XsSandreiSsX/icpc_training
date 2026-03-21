@@ -1,36 +1,37 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int const MAXN = 1000;
+const int MAXN = 101;
 
-vector <int> pos;
-vector <bool> connected;
+int dp[MAXN];
+vector <int> pos(MAXN);
+
 int main() {
     int n; cin >> n;
-
-    for (int i = 0, x; i < n; i++) {
-        cin >> x;
-        pos.push_back(x);
-        connected.push_back(false);
+    
+    for (int i = 1; i <= n; i++) {
+        cin >> pos[i];
     }
 
-    sort(pos.begin(), pos.end());
+    sort(pos.begin() + 1, pos.begin() + n + 1);
 
-    int answer = 0;
+    dp[2] = pos[2] - pos[1];
 
-    for (int i = 0; i < n; i++) {
-        long long potential_cost = 10e7;
-        if (i != n - 1) {
-            potential_cost = 
-        }
-        answer += min(abs(cost[i] - cost[i-1]), abs(cost[i+1] - cost[i]));
+    if (n >= 3) {
+        dp[3] = pos[3] - pos[2] + dp[2];
+    }
+    if (n >= 4) {
+        dp[4] = pos[4] - pos[3] + dp[2];
     }
 
-    cout << answer << "\n";
+    for (int i = 5; i <= n; i++) {
+        dp[i] = pos[i] - pos[i-1] + min(dp[i-1], dp[i-2]);
+    }
 
-  
+    cout << dp[n] << "\n";
+
     return 0;
 }
