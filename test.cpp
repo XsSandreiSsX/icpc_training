@@ -1,5 +1,4 @@
 #include <iostream>
-#include <bits/stdc++.h>
 #include <vector>
 
 using namespace std;
@@ -14,16 +13,12 @@ pair<int, int> MatrixArgMax(const vector <vector <int>>& matrix) {
         for (int j = 0; j < m; j++) {
             if (matrix[i][j] > mmax) {
                 mmax = matrix[i][j];
-                indx.first = i;
-                indx.second = j;
+                indx = {i, j};
             }
         }
     }
-
     return indx;
 }
-
-
 
 int main() {
     int n, m; cin >> n >> m;
