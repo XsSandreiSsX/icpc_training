@@ -10,7 +10,7 @@ void solve() {
     int cost = 0;
 
     map <char, int> alph;
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 26; i++) {
         alph[alphabet[i]] = i+1;
     }
 
