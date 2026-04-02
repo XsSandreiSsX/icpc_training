@@ -1,22 +1,22 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
+const int MAXN = 51;
+
 void solve() {
     int n, m, r, c; cin >> n >> m >> r >> c;
-    r--; c--;
-    vector <string> arr(n);
-
-    int blck = 0;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-        for (int j = 0; j < m; j++) {
-            if (arr[i][j] == 'B') blck++;
+    char arr[MAXN][MAXN];
+    
+    int blc = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            cin >> arr[i][j];
+            if (arr[i][j] == 'B') blc++;
         }
     }
 
-    if (blck < 1) {
+    if (blc == 0) {
         cout << "-1\n";
         return;
     }
@@ -26,9 +26,9 @@ void solve() {
         return;
     }
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; i++) {
-            if (arr[) {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (arr[i][j] == 'B' && (r == i || c == j)) {
                 cout << "1\n";
                 return;
             }
@@ -36,6 +36,7 @@ void solve() {
     }
 
     cout << "2\n";
+
 }
 
 int main() {
