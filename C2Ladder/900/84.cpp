@@ -14,7 +14,7 @@ void solve() {
     map <int, char> m1;
     map <char, int> m2;
     string constt = "qwertyuiopasdfghjkl;zxcvbnm,./";
-    for (int i = 1; i <= constt.size(); i++) {
+    for (int i = 0; i < constt.size(); i++) {
         m1[i] = constt[i];
         m2[constt[i]] = i;
     }

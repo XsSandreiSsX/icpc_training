@@ -1,48 +1,26 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
 using namespace std;
 
-void solve() {
-    int n, m, r, c; cin >> n >> m >> r >> c;
-    r--; c--;
-    vector <string> arr(n);
-
-    int blck = 0;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-        for (int j = 0; j < m; j++) {
-            if (arr[i][j] == 'B') blck++;
-        }
-    }
-
-    if (blck < 1) {
-        cout << "-1\n";
-        return;
-    }
-
-    if (arr[r][c] == 'B') {
-        cout << "0\n";
-        return;
-    }
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; i++) {
-            if (arr[) {
-                cout << "1\n";
-                return;
-            }
-        }
-    }
-
-    cout << "2\n";
-}
-
 int main() {
-    int t; cin >> t;
-    while(t--) {
-        solve();
+    int n; cin >> n;
+
+    vector <int> a(n);
+    for (int i = 0; i < n; i++) cin >> a[i];
+
+    int mn = a[0];
+    set<int> xyevie;
+
+    for (int i = n - 2; i >= 0; i--) {
+        if (a[i] > mn) {
+            xyevie.insert(a[i]);
+        } else {
+            mn = a[i];
+        }
     }
 
+    cout << xyevie.size() << "\n";
     return 0;
 }
